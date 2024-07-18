@@ -1,4 +1,4 @@
-Similar to `Dict/Set` except its variants are exposed for you to mess with
+Similar to `Dict`/`Set` except its variants are exposed for you to mess with
 without running into an invalid state.
 As a cherry on top you also get a safe non-empty type.
 

@@ -25,8 +25,10 @@ queue |> DictSafe.minimum |> .value
 
 ## be aware
 
-Pragmatically speaking, the core `Dict` should be faster than `DictSafe`.
-So the only use cases I can roughly see for `DictSafe` are
+Pragmatically speaking, core `Dict` should be faster than `DictSafe`,
+so you should likely stick to that.
+
+Some use cases I can roughly see for `DictSafe` are
   - algorithms that take a binary trie as input (e.g. binary parsers that parse an enum)
   - if you need certain functionality like a non-empty dict or a map2/justsMap2 and are unhappy with the alternatives out there
   - very specific situations where `DictSafe` could be faster (verify this for your specific codebase!)

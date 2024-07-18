@@ -1,12 +1,11 @@
 {
     "type": "package",
     "name": "lue-bird/elm-lookup-safe",
-    "summary": "Dict/Set which doesn't need to be opaque",
+    "summary": "like Dict without invariants",
     "license": "MIT",
     "version": "1.0.0",
     "exposed-modules": [
-        "LookupSafe",
-        "StructuredId"
+        "DictSafe"
     ],
     "elm-version": "0.19.1 <= v < 20.0.0",
     "dependencies": {

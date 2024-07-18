@@ -1,25 +1,18 @@
 Similar to `Dict/Set` except its variants are exposed for you to safely mess with.
 
 ```elm
-import DictSafe exposing (DictSafe)
+import LookupSafe exposing (LookupSafe)
 import StructuredId exposing (StructuredId)
-
-type Priority
-    = Priority Int
 
 type Job
     = Job String
 
-queue : DictSafe Job
+queue : LookupSafe Job
 queue =
-    DictSafe.fromListMap
-        (\( prio, job ) -> { key = prio |> priorityToStructuredId, value = job })
-        [ ( Priority 3, Job "Shave the yak" )
-        , ( Priority 5, Job "Reticulate splines" )
-        , ( Priority 1, Job "Feed the gremlins" )
+    LookupSafe.fromListMap
+        (\( prio, job ) -> { key = prio |> StructuredId.ofInt, value = job })
+        [ ( 3, Job "Shave the yak" )
+        , ( 5, Job "Reticulate splines" )
+        , ( 1, Job "Feed the gremlins" )
         ]
-
-priorityToStructuredId : Priority -> StructuredId
-priorityToStructuredId (Priority prioInt) =
-    StructuredId.ofInt prioInt
 ```

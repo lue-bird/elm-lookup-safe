@@ -5,8 +5,7 @@
     "license": "MIT",
     "version": "1.0.0",
     "exposed-modules": [
-        "SetSafe",
-        "DictSafe",
+        "LookupSafe",
         "StructuredId"
     ],
     "elm-version": "0.19.1 <= v < 20.0.0",

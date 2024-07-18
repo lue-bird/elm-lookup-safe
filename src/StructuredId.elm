@@ -93,6 +93,12 @@ toString =
         structuredId |> toJson |> Json.Encode.encode 0
 
 
+toJson : StructuredId -> Json.Encode.Value
+toJson =
+    \structuredId ->
+        structuredId
+
+
 toBits : StructuredId -> List Bit
 toBits =
     \structuredId ->
@@ -102,12 +108,6 @@ toBits =
             |> Bytes.Encode.encode
             |> bytesToUnsignedInt8List
             |> List.concatMap int8ToBitList
-
-
-toJson : StructuredId -> Json.Encode.Value
-toJson =
-    \structuredId ->
-        structuredId
 
 
 bytesToUnsignedInt8List : Bytes.Bytes -> List Int

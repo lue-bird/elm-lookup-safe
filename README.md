@@ -9,14 +9,15 @@ import Bits
 type Job
     = Job String
 
-queue : DictSafe Job
+queue : DictSafe.Filled Job
 queue =
-    DictSafe.fromListMap
+    DictSafe.fromHeadTailListTupleMap
         (\( prio, job ) -> { key = prio |> Bits.fromIntUnsigned 32, value = job })
-        [ ( 3, Job "Shave the yak" )
-        , ( 5, Job "Reticulate splines" )
-        , ( 1, Job "Feed the gremlins" )
-        ]
+        ( ( 3, Job "Shave the yak" )
+        , [ ( 5, Job "Reticulate splines" )
+          , ( 1, Job "Feed the gremlins" )
+          ]
+        )
 
 queue |> DictSafe.minimum |> .value
 --> Job "Feed the gremlins" (no maybe)
